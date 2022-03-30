@@ -3,18 +3,18 @@ package com.qa.ims.persistence.domain;
 public class Items {
 
 	private Long id;
-	private String Name;
+	private String name;
 	private String description;
 
 	public Items (String Name, String description) {
-		this.setFirstName(Name);
-		this.setSurname(description);
+		this.setName(Name);
+		this.setDescription (description);
 	}
 
 	public Items(Long id, String Name, String description) {
 		this.setId(id);
-		this.setFirstName(Name);
-		this.setSurname(description);
+		this.setName (Name);
+		this.setDescription (description);
 	}
 
 	public Long getId() {
@@ -25,32 +25,32 @@ public class Items {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return Name;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String Name) {
-		this.Name = Name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getSurname() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setSurname(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
 	@Override
 	public String toString() {
-		return "id:" + id + " first name:" + Name + " description:" + description;
+		return "id:" + id + " first name:" + name + " description:" + description;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		return result;
@@ -65,10 +65,10 @@ public class Items {
 		if (getClass() != obj.getClass())
 			return false;
 		Items other = (Items) obj;
-		if (getFirstName() == null) {
-			if (other.getFirstName() != null)
+		if (getName() == null) {
+			if (other.getName() != null)
 				return false;
-		} else if (!getFirstName().equals(other.getFirstName()))
+		} else if (!getName().equals(other.getName()))
 			return false;
 		if (id == null) {
 			if (other.id != null)
