@@ -39,7 +39,7 @@ public class ItemsController implements CrudController<Items> {
 	}
 
 	/**
-	 * Creates a items by taking in user input
+	 * Creates items by taking in user input
 	 */
 	@Override
 	public Items create() {

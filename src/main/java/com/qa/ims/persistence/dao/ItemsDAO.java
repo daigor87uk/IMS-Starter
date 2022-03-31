@@ -27,20 +27,20 @@ public class ItemsDAO implements Dao<Items> {
 	}
 
 	/**
-	 * Reads all customers from the database
+	 * Reads all items from the database
 	 * 
-	 * @return A list of customers
+	 * @return A list of items
 	 */
 	@Override
 	public List<Items> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM customers");) {
-			List<Items> customers = new ArrayList<>();
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM items");) {
+			List<Items> items = new ArrayList<>();
 			while (resultSet.next()) {
-				customers.add(modelFromResultSet(resultSet));
+				items.add(modelFromResultSet(resultSet));
 			}
-			return customers;
+			return items;
 		} catch (SQLException e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
@@ -51,7 +51,7 @@ public class ItemsDAO implements Dao<Items> {
 	public Items readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM customers ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY id DESC LIMIT 1");) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -62,9 +62,9 @@ public class ItemsDAO implements Dao<Items> {
 	}
 
 	/**
-	 * Creates a customer in the database
+	 * Creates an item in the database
 	 * 
-	 * @param customer - takes in a customer object. id will be ignored
+	 * @param item - takes in a item object. id will be ignored
 	 */
 	@Override
 	public Items create(Items items) {
@@ -99,10 +99,10 @@ public class ItemsDAO implements Dao<Items> {
 	}
 
 	/**
-	 * Updates a customer in the database
+	 * Updates an item in the database
 	 * 
-	 * @param customer - takes in a customer object, the id field will be used to
-	 *                 update that customer in the database
+	 * @param item - takes in a item object, the id field will be used to
+	 *                 update that item in the database
 	 * @return
 	 */
 	@Override
@@ -123,9 +123,9 @@ public class ItemsDAO implements Dao<Items> {
 	}
 
 	/**
-	 * Deletes a customer in the database
+	 * Deletes an item in the database
 	 * 
-	 * @param id - id of the customer
+	 * @param id - id of the item
 	 */
 	@Override
 	public int delete(long id) {
