@@ -4,17 +4,17 @@ public class Items {
 
 	private Long id;
 	private String name;
-	private String description;
+	private String price;
 
-	public Items (String Name, String description) {
+	public Items (String Name, String price) {
 		this.setName(Name);
-		this.setDescription (description);
+		this.setPrice (price);
 	}
 
-	public Items(Long id, String Name, String description) {
+	public Items(Long id, String Name, String price) {
 		this.setId(id);
 		this.setName (Name);
-		this.setDescription (description);
+		this.setPrice (price);
 	}
 
 	public Long getId() {
@@ -33,17 +33,17 @@ public class Items {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getPrice() {
+		return price;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setPrice(String price) {
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "id:" + id + " first name:" + name + " description:" + description;
+		return "id:" + id + " first name:" + name + " price:" + price;
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class Items {
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		return result;
 	}
 
@@ -75,10 +75,10 @@ public class Items {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (description == null) {
-			if (other.description != null)
+		if (price == null) {
+			if (other.price != null)
 				return false;
-		} else if (!description.equals(other.description))
+		} else if (!price.equals(other.price))
 			return false;
 		return true;
 	}

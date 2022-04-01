@@ -22,8 +22,7 @@ public class OrdersDAO implements Dao<Orders> {
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("orderNumber");
 		String ItemName = resultSet.getString("ItemName");
-		String description = resultSet.getString("description");
-		return new Orders (id, ItemName, description);
+		return new Orders (id, ItemName);
 	}
 
 	/**
@@ -70,9 +69,8 @@ public class OrdersDAO implements Dao<Orders> {
 	public Orders create(Orders orders) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO orders(itemItemName, description) VALUES (?, ?)");) {
+						.prepareStatement("INSERT INTO orders(itemItemName) VALUES (?)");) {
 			statement.setString(1, orders.getItemName());
-			statement.setString(2, orders.getDescription());
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
@@ -109,9 +107,9 @@ public class OrdersDAO implements Dao<Orders> {
 	public Orders update(Orders orders) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE orders SET itemItemName = ?, description = ? WHERE id = ?");) {
+						.prepareStatement("UPDATE orders SET itemItemName = ?, WHERE id = ?");) {
 			statement.setString(1, orders.getItemName());
-			statement.setString(2, orders.getDescription());
+//			statement.setString(2, orders.getDescription());
 			statement.setLong(3, orders.getOrderNumber());
 			statement.executeUpdate();
 			return read(orders.getOrderNumber());

@@ -4,17 +4,14 @@ public class Orders {
 
 	private Long orderNumber;
 	private String itemName;
-	private String description;
 
-	public Orders(String itemName, String description) {
+	public Orders(String itemName) {
 		this.setItemName(itemName);
-		this.setDescription(description);
 	}
 
-	public Orders(Long orderNumber, String itemName, String description) {
+	public Orders(Long orderNumber, String itemName) {
 		this.setOrderNumber(orderNumber);
 		this.setItemName(itemName);
-		this.setDescription(description);
 	}
 
 	public Long getOrderNumber() {
@@ -33,17 +30,9 @@ public class Orders {
 		this.itemName = itemName;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	@Override
 	public String toString() {
-		return "orderNumber:" + orderNumber + " Item:" + itemName + " description:" + description;
+		return "orderNumber:" + orderNumber + " Item:" + itemName;
 	}
 
 	@Override
@@ -52,7 +41,6 @@ public class Orders {
 		int result = 1;
 		result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
 		result = prime * result + ((orderNumber == null) ? 0 : orderNumber.hashCode());
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		return result;
 	}
 
@@ -74,11 +62,6 @@ public class Orders {
 			if (other.orderNumber != null)
 				return false;
 		} else if (!orderNumber.equals(other.orderNumber))
-			return false;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
 			return false;
 		return true;
 	}
