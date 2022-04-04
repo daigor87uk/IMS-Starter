@@ -22,31 +22,31 @@ public class OrdersDAOTest {
 
 	@Test
 	public void testCreate() {
-		final Orders created = new Orders(2L, "elden", "elden ring");
+		final Orders created = new Orders(2L, "gt6");
 		assertEquals(created, DAO.create(created));
 	}
 
 	@Test
 	public void testReadAll() {
 		List<Orders> expected = new ArrayList<>();
-		expected.add(new Orders(1L, "gt6", "gran turismo"));
+		expected.add(new Orders(1L, "gt6"));
 		assertEquals(expected, DAO.readAll());
 	}
 
 	@Test
 	public void testReadLatest() {
-		assertEquals(new Orders(1L, "gt6", "gran turismo"), DAO.readLatest());
+		assertEquals(new Orders(1L, "gt6"), DAO.readLatest());
 	}
 
 	@Test
 	public void testRead() {
 		final long ID = 1L;
-		assertEquals(new Orders(ID, "gt6", "gran turismo"), DAO.read(ID));
+		assertEquals(new Orders(ID, "gt6"), DAO.read(ID));
 	}
 
 	@Test
 	public void testUpdate() {
-		final Orders updated = new Orders(1L, "elden", "elden ring");
+		final Orders updated = new Orders(1L, "gt6");
 		assertEquals(updated, DAO.update(updated));
 
 	}

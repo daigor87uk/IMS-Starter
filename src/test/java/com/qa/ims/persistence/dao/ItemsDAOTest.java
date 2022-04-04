@@ -23,31 +23,31 @@ public class ItemsDAOTest {
 
 	@Test
 	public void testCreate() {
-		final Items created = new Items(2L, "elden", "elden ring");
+		final Items created = new Items(2L, "gt6", "60");
 		assertEquals(created, DAO.create(created));
 	}
 
 	@Test
 	public void testReadAll() {
 		List<Items> expected = new ArrayList<>();
-		expected.add(new Items(1L, "gt6", "gran turismo"));
+		expected.add(new Items(1L, "gt6", "60"));
 		assertEquals(expected, DAO.readAll());
 	}
 
 	@Test
 	public void testReadLatest() {
-		assertEquals(new Items(1L, "gt6", "gran turismo"), DAO.readLatest());
+		assertEquals(new Items(1L, "gt6", "60"), DAO.readLatest());
 	}
 
 	@Test
 	public void testRead() {
 		final long ID = 1L;
-		assertEquals(new Items(ID, "gt6", "gran turismo"), DAO.read(ID));
+		assertEquals(new Items(ID, "gt6", "60"), DAO.read(ID));
 	}
 
 	@Test
 	public void testUpdate() {
-		final Items updated = new Items(1L, "elden", "elden ring");
+		final Items updated = new Items(1L, "gt6", "60");
 		assertEquals(updated, DAO.update(updated));
 
 	}

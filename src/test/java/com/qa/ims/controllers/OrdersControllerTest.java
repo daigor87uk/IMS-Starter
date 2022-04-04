@@ -33,7 +33,7 @@ public class OrdersControllerTest {
 	@Test
 	public void testCreate() {
 		final String F_NAME = "gta", L_NAME = "vice city";
-		final Orders created = new Orders(F_NAME, L_NAME);
+		final Orders created = new Orders(F_NAME);
 
 		Mockito.when(utils.getString()).thenReturn(F_NAME, L_NAME);
 		Mockito.when(dao.create(created)).thenReturn(created);
@@ -47,7 +47,7 @@ public class OrdersControllerTest {
 	@Test
 	public void testReadAll() {
 		List<Orders> orders = new ArrayList<>();
-		orders.add(new Orders(1L, "gt6", "gran turismo 6"));
+		orders.add(new Orders(1L, "gt6"));
 
 		Mockito.when(dao.readAll()).thenReturn(orders);
 
@@ -58,10 +58,10 @@ public class OrdersControllerTest {
 
 	@Test
 	public void testUpdate() {
-		Orders updated = new Orders(1L, "elden", "elden ring");
+		Orders updated = new Orders(1L, "elden");
 
 		Mockito.when(this.utils.getLong()).thenReturn(1L);
-		Mockito.when(this.utils.getString()).thenReturn(updated.getItemName(), updated.getDescription());
+		Mockito.when(this.utils.getString()).thenReturn(updated.getItemName());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 
 		assertEquals(updated, this.controller.update());
